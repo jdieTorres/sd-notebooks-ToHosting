@@ -1,0 +1,216 @@
+/* General */
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: #E6E6E6;
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+    margin: 0px;
+    /*overflow: hidden;*/
+    padding: 0px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0px;
+}
+
+*:focus {
+    outline: none;
+}
+
+/* Aside */
+
+.aside-notes{
+    background-color: #3a3053; /*E6E6E6*/
+    color: white;
+    width: 25%;
+}
+
+.aside-header{
+    background-color: #4B3F6B;
+    border-bottom: 1px #a0a0a0 solid;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+    padding: 25px 0px 20px 35px;
+}
+
+.aside-grid{
+    height: 370px;
+    overflow: auto;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-top: 15px;
+}
+
+.aside-setts{
+    background-color: #4B3F6B;
+    box-shadow: -7px 2px 8px 4px rgba(0, 0, 0, 0.5);
+    height: 26.2%;
+    padding: 15px 15px 10px 15px;
+}
+
+/* Scrollbar */
+
+.aside-grid::-webkit-scrollbar{
+    width: 7px;
+}
+
+.aside-grid::-webkit-scrollbar-thumb{
+    background-color: #2ed0d2;
+    border-radius: 10px;
+}
+
+/* Note List & Items */
+
+.aside-grid ul{
+    list-style: none;
+    width: 98%;
+}
+
+.notes-list-item{
+    border-bottom: 0.5px #a0a0a0 solid;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    overflow-x: hidden !important;
+}
+
+.notes-list-item i{
+    display: block;
+    float: left;
+    margin-top: 20px;
+    margin-right: 20px;
+    font-size: 18px;
+}
+
+.notes-list-item h4{
+    margin-left: 35px;
+}
+
+.notes-list-item p{
+    margin-left: 35px;
+    font-size: 13px;
+}
+
+/* Main Grid */
+
+.main-notes{
+    width: 75%;
+}
+
+.main-nav{
+    align-items: center;
+    background-color: #3a3053;
+    background-image: url('../images/bg-boost-desktop.svg');
+    background-size: 1023px;
+    box-shadow: 0px 0px 10px black;
+    color: white;
+    display: flex;
+    font-size: 25px;
+    width: 97%;
+    padding: 10px 0px 14px 35px;
+    justify-content: space-between;
+}
+
+.main-nav i{
+    color: #2ed0d2;
+    font-size: 35px;
+    margin-right: 60px;
+}
+
+.no-select-view {
+    background-color: #2ed0d2;
+    background-image: url('../images/bg-login-desktop.svg');
+    background-repeat: no-repeat;
+    background-size: 3000px;
+    height: 515px;
+}
+
+.no-select-view h3{
+    margin: 0px auto;
+    font-size: 45px;
+    text-align: center;
+    padding-top: 200px;
+    width: 550px;
+}
+
+/* Forms */
+
+.main-note-form{
+    margin-top: 5px;
+    margin-left: 35px;
+}
+
+.main-note-form h3{
+    font-size: 50px;
+}
+
+.main-note-form form{
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+}
+
+.main-note-form input[type="text"]{
+    border-radius: 5px;
+    color: black;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    margin-top: 10px;
+    padding: 10px 0px 10px 15px;
+}
+
+.main-note-form input[placeholder="Titulo"]{
+    height: 30px;
+}
+
+.main-note-form textarea{
+    border-radius: 5px;
+    color: black;
+    font-family: 'Poppins', sans-serif;
+    height: 315px;
+    margin-top: 30px;
+    padding: 10px 0px 10px 15px;
+    resize: none;
+}
+
+.main-note-form input:focus, select:focus, textarea:focus {
+    border: 2.5px #2ed0d2 solid;
+}
+
+.new-note-button {
+    background-color: #2ed0d2;
+    border: none;
+    border-radius: 100px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+    color: white;
+    cursor: pointer;
+    font-size: 40px;
+    font-weight: bold;
+    height: 80px;
+    right: 50px;
+    padding-bottom: 12px;
+    padding-top: 12px;
+    position: absolute;
+    text-decoration: none;
+    bottom: 30px;
+    width: 80px;
+}
+
+.new-note-button:hover {
+    background-color: #3a3053; 
+    animation: beat 1s infinite alternate;
+}
+
+@keyframes beat {
+    to {
+        transform: scale(1.2);
+    }
+}
