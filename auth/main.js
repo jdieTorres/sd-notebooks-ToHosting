@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, updateProfile } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, FacebookAuthProvider, signInWithPopup, updateProfile } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDdzu88Yc2hFkOBK0BrcvSGX-4yDbAs8R0",
@@ -14,14 +14,16 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig);
 const firebaseAuth = getAuth(firebaseApp);
 
-const Gprovider = new GoogleAuthProvider();
 
+
+// Login with Google
+const provider = new GoogleAuthProvider();
 
 const googleLogin = document.getElementById("googleLogin");
 
 googleLogin.addEventListener("click", function () {
 
-  signInWithPopup(firebaseAuth, Gprovider)
+  signInWithPopup(firebaseAuth, provider)
     .then((result) => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const { displayName, email, photoURL, uid } = result.user;
@@ -43,6 +45,34 @@ googleLogin.addEventListener("click", function () {
 
     });
 })
+
+
+// Login with Facebook
+const FacebookLogin = document.getElementById("FacebookLogin");
+FacebookLogin.addEventListener("click", function(){
+
+  const provider = new FacebookAuthProvider();
+    signInWithPopup(auth, provider)
+    .then((result) => {
+      const credential = FacebookAuthProvider.credentialFromResult(result);
+      const { displayName, email, photoURL, uid } = result.user;
+
+    sessionStorage.setItem('displayName', displayName);
+    sessionStorage.setItem('email', email);
+    sessionStorage.setItem('photoURL', photoURL);
+    sessionStorage.setItem('uid', uid);
+
+    window.location.href = "../views/login_view.html";
+  }).catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+
+    return {
+      errorMessage
+    }
+
+  });
+});
 
 const signFormSubmit = document.getElementById("signForm");
 

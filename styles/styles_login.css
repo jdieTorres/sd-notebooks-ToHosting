@@ -187,9 +187,21 @@ body {
 
 .GoogleButton {
     margin-top: 15px;
+    
 }
 
 .GoogleButton > img {
+    width: 24px;
+    height: auto;
+    margin-right: 5px;
+}
+
+.FacebookButton {
+    margin-top: 15px;
+    
+}
+
+.FacebookButton > img {
     width: 24px;
     height: auto;
     margin-right: 5px;

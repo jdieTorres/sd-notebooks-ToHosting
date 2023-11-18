@@ -2,12 +2,16 @@
 <html lang="en">
 
 <head>
+  <link rel="stylesheet" href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, user-scalable=no">
+  
   <script src="../js/createNotes.js" defer type="module"></script>
   <script src="../js/showNotes.js" defer type="module"></script>
   <!--<script src="../js/changeViews.js" defer type="module"></script> -->
   <link rel="stylesheet" type="text/css" href="../styles/styles_notes_view.css">
+  <link rel="stylesheet" type="text/css" href="../styles/PopUp/Update.css">
+  
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -75,7 +79,7 @@
         <script>document.write(new Date().toDateString())</script>
       </h3>
 
-      <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" id="newNoteForm">
+      <form method="POST" id="newNoteForm">
         <input type="text" placeholder="Titulo" id="title" required>
         <textarea name="content" rows="4" cols="50" placeholder="Escribe tu nota!" id="content" required></textarea>
 
@@ -88,6 +92,27 @@
     </div>
 
   </div>
+
+  <div id="updateModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeModal"><i class="fa-solid fa-xmark fa-xl"></i></span>
+        <h2>Editar Nota</h2><br><br>
+        <form action="#">
+          <div class="input-box">
+              <span class="icon"><i class="fa-solid fa-file-word fa-lg" style="color: #542f89;"></i></span>
+              <label for="updatedTitle">Nuevo Título:</label>
+              <input  type="text" id="updatedTitle">
+            </div>
+            <div class="input-box">
+              <span class="icon"><i class="fa-regular fa-file-lines fa-lg" style="color: #542f89;"></i></span>
+              <label for="updatedBody">Nuevo Cuerpo:</label>
+              <textarea  id="updatedBody"></textarea>
+            </div>
+            <button class="saveButton" id="saveChanges"><i class="fa-solid fa-download fa-lg" style="color: #542f89;"></i></button>
+        </form>
+        
+    </div>
+</div>
 
 </body>
 
