@@ -10,7 +10,7 @@ body {
     display: flex;
     font-family: 'Poppins', sans-serif;
     margin: 0px;
-    /*overflow: hidden;*/
+    overflow: hidden;
     padding: 0px;
 }
 
@@ -78,25 +78,58 @@ h6 {
 .notes-list-item{
     border-bottom: 0.5px #a0a0a0 solid;
     margin-bottom: 10px;
+    height: 45px;
     padding-bottom: 10px;
     overflow-x: hidden !important;
+    
+    display: flex;
+
 }
 
-.notes-list-item i{
-    display: block;
-    float: left;
-    margin-top: 20px;
-    margin-right: 20px;
+.notes-list-item-icon{
+    margin-top: 10px;
+    margin-left: 10px;
     font-size: 18px;
 }
 
-.notes-list-item h4{
-    margin-left: 35px;
+.chars-grid {
+    margin-left: 25px;
+    width: 120px;
+    overflow: hidden;
 }
 
-.notes-list-item p{
-    margin-left: 35px;
-    font-size: 13px;
+.chars-grid > h4{
+    height: 25px;
+    overflow: hidden;
+}
+
+.chars-grid > p{
+    font-size: 12px;
+    overflow: hidden;
+}
+
+.notes-list-item > p{
+    font-size: 10px;
+    margin-left: 10px;
+    margin-top: 15px;
+    overflow: hidden;
+    width: 65px;
+}
+
+.delete-buttom{
+    color: rgb(255, 0, 0);
+    cursor: pointer;
+    font-size: 20px !important;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+.update-buttom{
+    color: rgb(0, 255, 42);
+    cursor: pointer;
+    font-size: 20px !important;
+    margin-left: 15px;
+    margin-top: 20px;
 }
 
 /* Main Grid */
@@ -165,6 +198,7 @@ h6 {
     font-size: 20px;
     margin-top: 10px;
     padding: 10px 0px 10px 15px;
+    box-shadow: 0 0 20px rgb(168, 255, 255);
 }
 
 .main-note-form input[placeholder="Titulo"]{
@@ -173,12 +207,14 @@ h6 {
 
 .main-note-form textarea{
     border-radius: 5px;
-    color: black;
+    background-color: rgb(255, 255, 255);
     font-family: 'Poppins', sans-serif;
     height: 315px;
-    margin-top: 30px;
+    width: auto;
+    margin-top: 40px;
     padding: 10px 0px 10px 15px;
     resize: none;
+    box-shadow: 0 0 20px rgb(168, 255, 255);
 }
 
 .main-note-form input:focus, select:focus, textarea:focus {

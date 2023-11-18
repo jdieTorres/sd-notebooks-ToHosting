@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
-import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js"
+import { getFirestore, collection, getDocs, deleteDoc, doc, updateDoc } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js"
 
 const uid = sessionStorage.getItem('uid');
 
@@ -31,43 +31,105 @@ const loadNotes = async (uid = '') => {
 
 const notes = await loadNotes(uid);
 
-notes.forEach(note => {
+const deleteNote = async (uid, noteId) => {
+    await deleteDoc(doc(collection(FirebaseDB, `${uid}/journal/notes`), noteId));
+    const updatedNotes = await loadNotes(uid);
+    updateNotesList(updatedNotes);
+};
 
-    const noteItem = document.createElement("li")
-    noteItem.className = "notes-list-item"
+/*const updateNote = async (uid, noteId, updatedData) => {
+    await updateDoc(doc(collection(FirebaseDB, `${uid}/journal/notes`), noteId), updatedData);
+    const updatedNotes = await loadNotes(uid);
+    updateNotesList(updatedNotes);
+};*/
 
-    const noteIcon = document.createElement("i")
-    noteIcon.className = "fa-regular fa-bookmark"
+const renderNotes = (notes) => {
 
-    const noteTitle = document.createElement("h4")
-    noteTitle.textContent = note.title;
+    document.getElementById("notesList").innerHTML = "";
+    notes.forEach(note => {
 
-    const noteBody = document.createElement("p")
-    noteBody.textContent = note.body
+        const noteItem = document.createElement("li");
+        noteItem.className = "notes-list-item";
 
-    noteItem.appendChild(noteIcon)
-    noteItem.appendChild(noteTitle)
-    noteItem.appendChild(noteBody)
+        const noteIcon = document.createElement("i");
+        noteIcon.className = "notes-list-item-icon fa-regular fa-bookmark";
 
-    document.getElementById("notesList").appendChild(noteItem);
+        const noteTitle = document.createElement("h4");
+        noteTitle.textContent = note.title;
+
+        const noteBody = document.createElement("p");
+        noteBody.textContent = note.body;
+
+        const noteChars = document.createElement("div");
+        noteChars.className = "chars-grid";
+        noteChars.appendChild(noteTitle);
+        noteChars.appendChild(noteBody);
+
+        const noteDate = document.createElement("p");
+        noteDate.textContent = note.date;
+
+        const deleteButton = document.createElement("i");
+        deleteButton.className = "delete-buttom fa-regular fa-trash-can fa-2xl";
+
+        deleteButton.addEventListener("click", () => {
+            deleteNote(uid, note.id);
+        });
+
+        /*const updateButton = document.createElement("i");
+        updateButton.className = "update-buttom fa-regular fa-pen-to-square fa-2xl";
+
+        updateButton.addEventListener("click", () => {
+            const modal = document.getElementById("updateModal");
+            const updatedTitleInput = document.getElementById("updatedTitle");
+            const updatedBodyInput = document.getElementById("updatedBody");
+
+            updatedTitleInput.value = note.title;
+            updatedBodyInput.value = note.body;
+
+            modal.style.display = "block";
+
+            const saveChangesButton = document.getElementById("saveChanges");
+            saveChangesButton.addEventListener("click", () => {
+                const updatedTitle = document.getElementById("updatedTitle").value;
+                const updatedBody = document.getElementById("updatedBody").value;
+
+                if (updatedTitle.trim() !== "" && updatedBody.trim() !== "") {
+                    updateNote(uid, note.id, { title: updatedTitle, body: updatedBody });
+                    const modal = document.getElementById("updateModal");
+                    modal.style.display = "none";
+                } else {
+                    alert("Por favor, complete todos los campos.");
+                }
+            });
+        });*/
+
+
+        noteItem.appendChild(noteIcon);
+        noteItem.appendChild(noteChars);
+        noteItem.appendChild(noteDate);
+        noteItem.appendChild(deleteButton);
+        noteItem.appendChild(updateButton);
+
+        document.getElementById("notesList").appendChild(noteItem);
+    });
+};
+
+/*const updateNotesList = (updatedNotes) => {
+    renderNotes(updatedNotes);
+};*/
+
+renderNotes(notes);
+
+const closeModalButton = document.getElementById("closeModal");
+
+closeModalButton.addEventListener("click", () => {
+    const modal = document.getElementById("updateModal");
+    modal.style.display = "none";
 });
 
-/*notes.forEach(note => {
-
-    const listItem = document.createElement("li");
-    listItem.className = "notes-list-item";
-
-    // Crea elementos HTML para el título y el cuerpo de la nota
-    const titleElement = document.createElement("h4");
-    titleElement.textContent = note.title;
-
-    const bodyElement = document.createElement("p");
-    bodyElement.textContent = note.body;
-
-    // Agrega los elementos al <li> y luego agrega el <li> a la lista
-    listItem.appendChild(titleElement);
-    listItem.appendChild(bodyElement);
-
-    // Agrega el <li> a la lista
-    document.querySelector(".notes-list").appendChild(listItem);
+/*window.addEventListener("click", (event) => {
+    const modal = document.getElementById("updateModal");
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
 });*/

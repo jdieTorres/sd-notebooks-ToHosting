@@ -1,10 +1,15 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
 import { getFirestore, collection, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js"
 
+const new_date = new Date();
+const mes= new_date.getMonth() + 1;
+const dia = new_date.getDate();
+const date = dia + ' - ' + mes + ' - ' + new_date.getFullYear();
+
 const newNoteContent = {
     title: '',
     body: '',
-    date: new Date().getTime(),
+    date: date
 }
 
 const uid = sessionStorage.getItem('uid');
