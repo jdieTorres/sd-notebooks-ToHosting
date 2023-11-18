@@ -1,0 +1,385 @@
+@media (max-width:1289px) {
+
+    #link-wrap input[type="text"] {
+        height: 57px;
+    }
+}
+
+@media (max-width:1123px) {
+
+    #link-wrap input[type="text"] {
+        width: 55%;
+    }
+
+    .link-button {
+        margin-right: 60px;
+        width: 22%;
+    }
+
+}
+
+@media (max-width:1063px) {
+
+    .footer-social {
+        margin-left: 25px;
+    }
+
+    .footer-social i {
+        font-size: 6.5vh;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+
+    .details-description {
+        display: block;
+    }
+
+}
+
+@media (max-width:993px) {
+
+    .start-title {
+        font-size: 10vh;
+    }
+
+    .start-subtitle {
+        font-size: 3vh;
+    }
+
+    .img-working {
+        height: 60vh;
+    }
+
+    #link-wrap input[type="text"] {
+        width: 48%;
+    }
+
+    .link-button {
+        width: 25%;
+    }
+
+}
+
+@media (max-width:892px) {
+
+    .start-title {
+        font-size: 8.5vh;
+    }
+
+    .start-subtitle {
+        font-size: 2.5vh;
+    }
+
+    .img-working {
+        height: 50vh;
+    }
+
+    .details-description {
+        font-size: 1.8vh;
+    }
+}
+
+@media (max-width:837px) {
+
+    #link-wrap input[type="text"] {
+        width: 42%;
+    }
+
+    .link-button {
+        width: 28%;
+    }
+
+    .details-circle {
+        margin: 0px auto;
+        margin-bottom: 30px;
+        margin-top: -115px;
+    }
+
+}
+
+@media (max-width:770px) {
+
+    .start-title {
+        font-size: 8vh;
+        line-height: 55px;
+        text-align: center;
+    }
+
+    .start-subtitle {
+        display: block;
+        font-size: 2vh;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .start-button {
+        display: block;
+        font-size: 2.2vh;
+        margin: 0px auto;
+        margin-top: 30px;
+        padding: 12px 30px;
+        width: 70%;
+    }
+
+    #link-wrap input[type="text"] {
+        width: 43%;
+    }
+
+    .link-button {
+        width: 26%;
+    }
+
+    
+}
+
+@media (max-width:735px) {
+
+    body {
+        background-position-y: 83%;
+    }
+
+    input {
+        font-size: 2vh;
+    }
+    
+    #header {
+        width: 80%;
+    }
+
+    .header-menu > li{
+        display: none;
+    }
+
+    .header-menu-login {
+        padding: 0px
+    }
+
+    .header-menu-login > li {
+        display: none;
+    }
+
+    .header-menu-icon {
+        display: block !important;
+        font-size: 6.5vh;
+        margin-left: 30px;
+    }
+
+    #start-wrap {
+        flex-direction: column-reverse;
+    }
+
+    .start-image-wrap {
+        width: 110%;
+    }
+
+    .img-working {
+        height: 45vh;
+    }
+
+    .start-title {
+        font-size: 5vh;
+        line-height: normal;
+        margin-top: 40px;
+    }
+
+    .start-subtitle {
+        font-size: 2.2vh;
+    }
+
+    #link-wrap {
+        background-size: 1240px;
+        height: 185px;
+        margin-top: 70px;
+    }
+
+    .link-container {
+        margin: 0px 0px 0px 0px;
+        padding: 20px 20px 20px 20px;
+        width: 84%;
+    }
+
+    #link-wrap input[type="text"] {
+        border-radius: 7px;
+        margin: 0px 0px 0px 0px;
+        width: 90%;
+    }
+
+    .link-button {
+        border-radius: 7px;
+        font-size: 2vh;
+        padding: 16px 60px;
+        margin: 0px;
+        margin-top: 30px;
+        width: 99%;
+    }
+
+    .paragraph-title {
+        display: block;
+        font-size: 4vh;
+        margin: 0px auto;
+    }
+
+    .paragraph-text {
+        display: block;
+        font-size: 2vh;
+        margin-bottom: 60px;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 20px;
+    }
+
+    #details-wrap {
+        flex-direction: column;
+    }
+
+    #details-wrap>div {
+        display: block;
+        height: auto;
+        margin: 0px auto;
+        padding: 75px 30px 40px 30px;
+        width: 77%;
+    }
+
+    #details-wrap h4 {
+        font-size: 2.98vh;
+        text-align: center;
+    }
+    
+    .details-description {
+        font-size: 2vh;
+        text-align: center;
+    }
+
+    .records-container {
+        margin-top: 80px !important;
+    }
+    
+    .custom-container {
+        margin-top: 80px !important;
+    }
+
+    .details-line {
+        margin: 0px;
+        margin-top: 165px;
+        height: 90.75vh;
+        width: 7px;
+    }
+
+    #boost-wrap {
+        height: auto;
+    }
+
+    .boost-container {
+        padding-top: 90px;
+        padding-bottom: 90px;
+    }
+
+    .boost-container {
+        font-size: 3.5vh;
+    }
+    
+    .boost-button {
+        font-size: 2vh;
+    }
+  
+    #footer-wrap {
+        height: auto;
+    }
+
+    .footer-container {
+        flex-direction: column;
+    }
+
+    .footer-logo {
+        width: 100%;
+    }
+    
+
+    .footer-logo img {
+        display: block;
+        margin: 0px auto;
+    }
+
+    .footer-menu {
+        flex-direction: column;
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    .footer-menu > div{
+        text-align: center;
+        width: 100%;
+    }
+
+    .footer-menu h5 {
+        font-size: 2.5vh;
+    }
+    
+    .footer-menu ul {
+        font-size: 2.1vh;
+        line-height: 30px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .footer-social {
+        text-align: center;
+        margin: 0px;
+        margin-top: 15px;
+        width: 100%;
+    }
+
+    .footer-social i {
+        margin: 0px;
+        font-size: 4vh;
+    }
+
+    .footer-social i:nth-child(1), 
+    .footer-social i:nth-child(2), 
+    .footer-social i:nth-child(3){
+        margin-right: 20px;
+    }
+
+    .attribution {
+        font-size: 2.2vw;
+        margin-top: 30px;
+        padding-bottom: 40px;
+    }
+}
+
+
+@media (max-width:450px) {
+
+    body {
+        background-position-y: 99%;
+    }
+
+    #link-wrap {
+        background-image: url('./images/bg-shorten-mobile.svg');
+        background-size: 287px;
+        background-repeat: no-repeat;
+        background-position-x: 95px;
+        background-position-y: -40px;
+    }
+
+    #link-wrap input[type="text"] {
+        padding-left: 3vh;
+    }
+
+    .paragraph-text {
+        width: auto; 
+    }
+
+    .attribution {
+        font-size: 3vw;
+    }
+    
+}
+
+@media (max-width:370px){
+
+    #boost-wrap {
+        background-image: url('./images/bg-boost-mobile.svg');
+        background-repeat: no-repeat;
+    }
+}
