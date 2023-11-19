@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, updateProfile } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, updateProfile, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDdzu88Yc2hFkOBK0BrcvSGX-4yDbAs8R0",
@@ -44,6 +44,34 @@ googleLogin.addEventListener("click", function () {
     });
 })
 
+const loginFormSubmit = document.getElementById("loginForm");
+
+loginFormSubmit.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  signInWithEmailAndPassword(firebaseAuth, correo, password)
+    .then((result) => {
+
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const { displayName, email, photoURL, uid } = result.user;
+
+      sessionStorage.setItem('displayName', displayName);
+      sessionStorage.setItem('email', email);
+      sessionStorage.setItem('photoURL', photoURL);
+      sessionStorage.setItem('uid', uid);
+
+      window.location.href = "../views/login_view.html";
+
+    }).catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+
+      console.log(errorMessage);
+
+    });
+
+});
+
 const signFormSubmit = document.getElementById("signForm");
 
 signFormSubmit.addEventListener("submit", function (event) {
@@ -77,25 +105,25 @@ signFormSubmit.addEventListener("submit", function (event) {
 
             });
 
-            updateProfile(firebaseAuth.currentUser, {
-              displayName: username
-            }).then(() => {
+          updateProfile(firebaseAuth.currentUser, {
+            displayName: username
+          }).then(() => {
 
-              const {displayName, email, uid } = firebaseAuth.currentUser;
+            const { displayName, email, uid } = firebaseAuth.currentUser;
 
-              sessionStorage.setItem('displayName', displayName);
-              sessionStorage.setItem('email', email);
-              sessionStorage.setItem('uid', uid);
+            sessionStorage.setItem('displayName', displayName);
+            sessionStorage.setItem('email', email);
+            sessionStorage.setItem('uid', uid);
 
-              window.location.href = "./login.html";
+            window.location.href = "./login.html";
 
-              console.log(displayName, email, uid)
+            console.log(displayName, email, uid)
 
-            }).catch((error) => {
-              const errorMessage = error.message;
+          }).catch((error) => {
+            const errorMessage = error.message;
 
-              console.log(errorMessage);
-            });
+            console.log(errorMessage);
+          });
 
         } else {
 
