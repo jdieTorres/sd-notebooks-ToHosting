@@ -37,11 +37,11 @@ const deleteNote = async (uid, noteId) => {
     updateNotesList(updatedNotes);
 };
 
-/*const updateNote = async (uid, noteId, updatedData) => {
+const updateNote = async (uid, noteId, updatedData) => {
     await updateDoc(doc(collection(FirebaseDB, `${uid}/journal/notes`), noteId), updatedData);
     const updatedNotes = await loadNotes(uid);
     updateNotesList(updatedNotes);
-};*/
+};
 
 const renderNotes = (notes) => {
 
@@ -75,7 +75,7 @@ const renderNotes = (notes) => {
             deleteNote(uid, note.id);
         });
 
-        /*const updateButton = document.createElement("i");
+        const updateButton = document.createElement("i");
         updateButton.className = "update-buttom fa-regular fa-pen-to-square fa-2xl";
 
         updateButton.addEventListener("click", () => {
@@ -101,22 +101,22 @@ const renderNotes = (notes) => {
                     alert("Por favor, complete todos los campos.");
                 }
             });
-        });*/
+        });
 
 
         noteItem.appendChild(noteIcon);
         noteItem.appendChild(noteChars);
         noteItem.appendChild(noteDate);
         noteItem.appendChild(deleteButton);
-        /*noteItem.appendChild(updateButton);*/
+        noteItem.appendChild(updateButton);
 
         document.getElementById("notesList").appendChild(noteItem);
     });
 };
 
-/*const updateNotesList = (updatedNotes) => {
+const updateNotesList = (updatedNotes) => {
     renderNotes(updatedNotes);
-};*/
+};
 
 renderNotes(notes);
 
@@ -127,9 +127,9 @@ closeModalButton.addEventListener("click", () => {
     modal.style.display = "none";
 });
 
-/*window.addEventListener("click", (event) => {
+window.addEventListener("click", (event) => {
     const modal = document.getElementById("updateModal");
     if (event.target === modal) {
         modal.style.display = "none";
     }
-});*/
+});
