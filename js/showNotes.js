@@ -108,7 +108,7 @@ const renderNotes = (notes) => {
         noteItem.appendChild(noteChars);
         noteItem.appendChild(noteDate);
         noteItem.appendChild(deleteButton);
-        noteItem.appendChild(updateButton);
+        /*noteItem.appendChild(updateButton);*/
 
         document.getElementById("notesList").appendChild(noteItem);
     });
