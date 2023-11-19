@@ -115,7 +115,7 @@ signFormSubmit.addEventListener("submit", function (event) {
             sessionStorage.setItem('email', email);
             sessionStorage.setItem('uid', uid);
 
-            window.location.href = "./login.html";
+            window.location.href = "./main.js";
 
             console.log(displayName, email, uid)
 
