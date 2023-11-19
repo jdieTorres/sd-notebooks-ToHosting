@@ -1,7 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
-import { getFirestore, collection, getDocs, deleteDoc, doc, updateDoc } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js"
-
-const uid = sessionStorage.getItem('uid');
+import { getFirestore, collection, getDocs, deleteDoc, doc, updateDoc} from "https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js"
 
 const firebaseConfig = {
     apiKey: "AIzaSyDdzu88Yc2hFkOBK0BrcvSGX-4yDbAs8R0",
@@ -13,7 +11,9 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-export const FirebaseDB = getFirestore(app);
+const FirebaseDB = getFirestore(app);
+
+const uid = sessionStorage.getItem('uid');
 
 const loadNotes = async (uid = '') => {
 

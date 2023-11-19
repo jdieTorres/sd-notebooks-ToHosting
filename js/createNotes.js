@@ -1,5 +1,19 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
-import { getFirestore, collection, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js"
+import { getFirestore, collection, setDoc, doc } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js"
+
+const firebaseConfig = {
+    apiKey: "AIzaSyDdzu88Yc2hFkOBK0BrcvSGX-4yDbAs8R0",
+    authDomain: "sd-notebooks-6e2a8.firebaseapp.com",
+    projectId: "sd-notebooks-6e2a8",
+    storageBucket: "sd-notebooks-6e2a8.appspot.com",
+    messagingSenderId: "58677219226",
+    appId: "1:58677219226:web:457132eb82f664bfa63423"
+};
+
+const app = initializeApp(firebaseConfig);
+const FirebaseDB = getFirestore(app);
+
+const uid = sessionStorage.getItem('uid');
 
 const new_date = new Date();
 const mes= new_date.getMonth() + 1;
@@ -11,8 +25,6 @@ const newNoteContent = {
     body: '',
     date: date
 }
-
-const uid = sessionStorage.getItem('uid');
 
 const noteFormSubmit = document.getElementById("newNoteForm");
 
@@ -44,15 +56,3 @@ noteFormSubmit.addEventListener("submit", function (event) {
         });
 
 });
-
-const firebaseConfig = {
-    apiKey: "AIzaSyDdzu88Yc2hFkOBK0BrcvSGX-4yDbAs8R0",
-    authDomain: "sd-notebooks-6e2a8.firebaseapp.com",
-    projectId: "sd-notebooks-6e2a8",
-    storageBucket: "sd-notebooks-6e2a8.appspot.com",
-    messagingSenderId: "58677219226",
-    appId: "1:58677219226:web:457132eb82f664bfa63423"
-};
-
-const app = initializeApp(firebaseConfig);
-const FirebaseDB = getFirestore(app);
