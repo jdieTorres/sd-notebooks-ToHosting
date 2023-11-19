@@ -22,11 +22,10 @@ googleLogin.addEventListener("click", function () {
   signInWithPopup(firebaseAuth, Gprovider)
     .then((result) => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
-      const { displayName, email, photoURL, uid } = result.user;
+      const { displayName, email, uid } = result.user;
 
       sessionStorage.setItem('displayName', displayName);
       sessionStorage.setItem('email', email);
-      sessionStorage.setItem('photoURL', photoURL);
       sessionStorage.setItem('uid', uid);
 
       window.location.href = "../views/login_view.html";
@@ -50,7 +49,7 @@ loginFormSubmit.addEventListener("submit", function (event) {
   const correo = document.getElementById("mail").value;
   const password = document.getElementById("password").value;
 
-  signInWithEmailAndPassword(firebaseAuth, "juan@dfssdfdfsdf.com", "12345678")
+  signInWithEmailAndPassword(firebaseAuth, correo, password)
     .then((result) => {
 
       const { displayName, email, uid } = result.user;
