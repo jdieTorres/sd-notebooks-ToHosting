@@ -1,3 +1,6 @@
+
+// Configuración Firebase
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, updateProfile, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
 
@@ -13,24 +16,37 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig);
 const firebaseAuth = getAuth(firebaseApp);
 
+// Configuración Provider de Google
+
 const Gprovider = new GoogleAuthProvider();
+
+// Referencia al botón de Google
 
 const googleLogin = document.getElementById("googleLogin");
 
 googleLogin.addEventListener("click", function () {
+
+  // Registro con PopUp de Google en Firebase
 
   signInWithPopup(firebaseAuth, Gprovider)
     .then((result) => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const { displayName, email, uid } = result.user;
 
+      // Inserción de datos en sessionStorage
+
       sessionStorage.setItem('displayName', displayName);
       sessionStorage.setItem('email', email);
       sessionStorage.setItem('uid', uid);
 
+      // Redirección hacia Notes View
+
       window.location.href = "../views/login_view.html";
 
     }).catch((error) => {
+
+      // Control de Errores
+
       const errorCode = error.code;
       const errorMessage = error.message;
 
@@ -41,19 +57,29 @@ googleLogin.addEventListener("click", function () {
     });
 });
 
+/***************************************************************************************************/
+
+// Referencia al formulario de Registro
+
 const signFormSubmit = document.getElementById("signForm");
 
 signFormSubmit.addEventListener("submit", function (event) {
   event.preventDefault();
 
+  // Reseteo para errores
+
   while (erroresList.firstChild) {
     erroresList.removeChild(erroresList.firstChild);
   }
+
+  // Obtención de los datos del form
 
   const correo = document.getElementById("mail").value;
   const username = document.getElementById("username").value;
   const password = document.getElementById("contrasena").value;
   const password_v = document.getElementById("contrasena_again").value;
+
+  // Verificación de Datos y Obtención de Errores
 
   if (correo.includes('@')) {
 
@@ -63,10 +89,12 @@ signFormSubmit.addEventListener("submit", function (event) {
 
         if (password == password_v) {
 
+          // Creación del usuario con correo en Firebase
+
           createUserWithEmailAndPassword(firebaseAuth, correo, password)
             .then((result) => {
 
-
+              console.log(result);
 
             }).catch((error) => {
               const errorCode = error.code;
@@ -76,6 +104,8 @@ signFormSubmit.addEventListener("submit", function (event) {
 
             });
 
+          // Inclusión del username de usuario
+
           updateProfile(firebaseAuth.currentUser, {
             displayName: username
           }).then(() => {
@@ -84,7 +114,9 @@ signFormSubmit.addEventListener("submit", function (event) {
 
             console.log(displayName, email, uid)
 
-            window.location.href = "./login.html";
+            // Redirección hacia el Login
+
+            window.location.href = "../views/register_view.html";
 
           }).catch((error) => {
             const errorMessage = error.message;
@@ -93,6 +125,8 @@ signFormSubmit.addEventListener("submit", function (event) {
           });
 
         } else {
+
+          // Creación de elementos HTML cargados con errores
 
           const ErrorPass = document.createElement("li")
           ErrorPass.className = "error"
@@ -115,6 +149,8 @@ signFormSubmit.addEventListener("submit", function (event) {
 
       } else {
 
+        // Creación de elementos HTML cargados con errores
+
         const ErrorPass = document.createElement("li")
         ErrorPass.className = "error"
 
@@ -136,6 +172,8 @@ signFormSubmit.addEventListener("submit", function (event) {
 
     } else {
 
+      // Creación de elementos HTML cargados con errores
+
       const ErrorName = document.createElement("li")
       ErrorName.className = "error"
 
@@ -155,6 +193,8 @@ signFormSubmit.addEventListener("submit", function (event) {
     }
 
   } else {
+
+    // Creación de elementos HTML cargados con errores
 
     const ErrorMail = document.createElement("li")
     ErrorMail.className = "error"

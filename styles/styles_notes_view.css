@@ -245,6 +245,12 @@ h6 {
     animation: beat 1s infinite alternate;
 }
 
+/* Active Note */
+
+.title-active{
+    text-align: center;
+}
+
 @keyframes beat {
     to {
         transform: scale(1.2);

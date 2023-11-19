@@ -1,0 +1,132 @@
+.modal {
+    backdrop-filter: blur(7px);
+    display: none;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.modal-content {
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 460px;
+    border: 2px solid rgb(55, 55, 55);
+    border-radius: 25px;
+    box-shadow: 0 0 68px rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    background: white;
+    padding: 20px;
+    box-sizing: border-box;
+
+    background-color: #2ed0d2 !important;
+    background-image: url('../images/bg-login-desktop.svg') !important;
+    background-repeat: no-repeat;
+    background-size: 2620px;
+}
+
+.modal-content h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2em;
+    color: #3a3053;
+    text-align: center;
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 80px;
+    border-bottom: 2px solid #000000;
+    margin-bottom: 30px;
+    box-sizing: border-box;
+
+    background-color: #e6e6e6;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+    padding: 10px 20px 10px 20px;
+    border-radius: 7px;
+
+}
+
+.input-box label {
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1.2em;
+    color: black;
+    pointer-events: none;
+}
+
+.input-title {
+    margin-top: -30px;
+}
+
+.input-body {
+    height: 165px;
+}
+
+.input-box input,
+.input-box textarea {
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    height: 50%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: black;
+    font-weight: 500;
+
+    overflow: hidden;
+    resize: none;
+}
+
+.input-box .icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2em;
+    color: #3a3053;
+    cursor: pointer;
+}
+
+
+.saveButton {
+    display: block;
+    margin: 0px auto;
+    margin-top: -10px;
+    width: 75%;
+    height: auto;
+    background-color: #3a3053;
+    border-color: #2ed0d2;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    color: white;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    padding-bottom: 12px;
+    padding-top: 12px;
+    text-decoration: none;
+}
+
+.saveButton > i{
+    margin-left: 12px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 20px;
+    color: #3a3053;
+    cursor: pointer;
+}

@@ -2,22 +2,22 @@
 <html lang="en">
 
 <head>
+  <link rel="stylesheet" href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, user-scalable=no">
-  
+
   <script src="../js/createNotes.js" defer type="module"></script>
   <script src="../js/showNotes.js" defer type="module"></script>
-  <script src="../js/deleteNotes.js" defer type="module"></script>
-  <script src="../js/updateNotes.js" defer type="module"></script>
 
   <link rel="stylesheet" type="text/css" href="../styles/styles_notes_view.css">
+  <link rel="stylesheet" type="text/css" href="../styles/styles_popup.css">
 
-  <!-- Fonts -->
+  <!--Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
 
-  <!-- Icons -->
+  <!--Icons -->
   <script src="https://kit.fontawesome.com/a59d4e3777.js" crossorigin="anonymous"></script>
 
   <script>
@@ -26,6 +26,10 @@
     const email = sessionStorage.getItem('email');
     const photoURL = sessionStorage.getItem('photoURL');
     const uid = sessionStorage.getItem('uid');
+
+    const titulo = sessionStorage.getItem('Note_title');
+    const cuerpo = sessionStorage.getItem('Note_body');
+    const date = sessionStorage.getItem('Note_date');
 
   </script>
 
@@ -64,21 +68,12 @@
 
     </div>
 
-    <!--<div class="no-select-view" id="noNote">
-      <h3>Da Click en el boton "+" para comenzar</h3>
-
-      <button class="new-note-button" id="changeViews">
-        <i class="fa-solid fa-plus"></i>
-      </button>
-
-    </div> -->
-
     <div class="main-note-form" id="newNote">
       <h3>
         <script>document.write(new Date().toDateString())</script>
       </h3>
 
-      <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" id="newNoteForm">
+      <form action="" method="POST" id="newNoteForm">
         <input type="text" placeholder="Titulo" id="title" required>
         <textarea name="content" rows="4" cols="50" placeholder="Escribe tu nota!" id="content" required></textarea>
 
@@ -90,6 +85,69 @@
 
     </div>
 
+  </div>
+
+  <div id="updateModal" class="modal">
+
+    <div class="modal-content">
+
+      <span class="close" id="closeModal"><i class="fa-solid fa-xmark fa-xl"></i></span>
+
+      <h2>Editar Nota</h2><br>
+
+      <form action="#">
+
+        <div class="input-box">
+
+          <span class="icon"><i class="fa-solid fa-file-word fa-lg""></i></span>
+
+              <label for=" updatedTitle">Nuevo Título:</label>
+
+              <input type="text" id="updatedTitle">
+
+        </div>
+
+        <div class="input-box">
+
+          <span class="icon"><i class="fa-regular fa-file-lines fa-lg""></i></span>
+
+              <label for=" updatedBody">Nuevo Cuerpo:</label>
+
+              <textarea id="updatedBody"></textarea>
+
+        </div>
+
+        <button class="saveButton" id="saveChanges"><i class="fa-solid fa-download fa-lg"></i></button>
+      </form>
+
+    </div>
+  </div>
+
+  <div id="activeModal" class="modal">
+
+    <div class="modal-content">
+
+      <span class="close" id="closeModal"><i class="fa-solid fa-xmark fa-xl"></i></span>
+
+      <h2>Tu Nota!</h2><br>
+
+      <span class="icon"><i class="fa-solid fa-file-word fa-lg""></i></span>
+
+      <h3>
+        <script>document.write(date)</script>
+      </h3>
+
+      <h3>
+        <script>document.write(titulo)</script>
+      </h3>
+
+      <span class=" icon"><i class="fa-regular fa-file-lines fa-lg""></i></span>
+
+      <p>
+        <script>document.write(cuerpo)</script>
+      </p>
+
+    </div>
   </div>
 
 </body>
