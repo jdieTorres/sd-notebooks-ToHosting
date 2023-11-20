@@ -8,6 +8,7 @@
 
   <script src="../js/createNotes.js" defer type="module"></script>
   <script src="../js/showNotes.js" defer type="module"></script>
+  <script src="../auth/log_out.js"></script>
 
   <link rel="stylesheet" type="text/css" href="../styles/styles_notes_view.css">
   <link rel="stylesheet" type="text/css" href="../styles/styles_popup.css">
@@ -31,6 +32,12 @@
     const cuerpo = sessionStorage.getItem('Note_body');
     const date = sessionStorage.getItem('Note_date');
 
+    if (displayName === null || displayName.toLowerCase() === "null") {
+
+      window.location = "../auth/login.html"
+
+    }
+
   </script>
 
   <title>Notes View</title>
@@ -38,6 +45,7 @@
 </head>
 
 <body>
+
   <div class="aside-notes">
     <div class="aside-header">
       <h2>
@@ -54,17 +62,26 @@
     </div>
 
     <div class="aside-setts">
-      <h3>Ajustes</h3>
+
+      <ul class="icons-list">
+
+        <li><i class="fa-brands fa-square-facebook"></i></li>
+        <li><i class="fa-brands fa-instagram"></i></li>
+        <li><i class="fa-brands fa-twitter"></i></li>
+        <li><i class="fa-brands fa-google-plus"></i></li>
+
+      </ul>
+
     </div>
 
   </div>
 
-  <div class="main-notes">
+  <div class="main-notes" id="mainNotes">
 
     <div class="main-nav">
       <h2>SD Notebooks</h2>
 
-      <a href="../index.html"><i class="fa-solid fa-up-right-from-square"></i></a>
+      <a onclick="logOut()"><i class="fa-solid fa-up-right-from-square"></i></a>
 
     </div>
 
@@ -91,7 +108,7 @@
 
     <div class="modal-content">
 
-      <span class="close" id="closeModal"><i class="fa-solid fa-xmark fa-xl"></i></span>
+      <span class="close" id="closeModalUpdate"><i class="fa-solid fa-xmark fa-xl"></i></span>
 
       <h2>Editar Nota</h2><br>
 
@@ -101,23 +118,23 @@
 
           <span class="icon"><i class="fa-solid fa-file-word fa-lg""></i></span>
 
-              <label for=" updatedTitle">Nuevo Título:</label>
+          <strong><label for=" updatedTitle">Nuevo Título:</label></strong>
 
               <input type="text" id="updatedTitle">
 
         </div>
 
-        <div class="input-box">
+        <div class="input-box textarea-box">
 
           <span class="icon"><i class="fa-regular fa-file-lines fa-lg""></i></span>
 
-              <label for=" updatedBody">Nuevo Cuerpo:</label>
+          <strong><label for=" updatedBody">Nuevo Cuerpo:</label></strong>
 
               <textarea id="updatedBody"></textarea>
 
         </div>
 
-        <button class="saveButton" id="saveChanges"><i class="fa-solid fa-download fa-lg"></i></button>
+        <button class="saveButton" id="saveChanges">Guarda tu Nota!<i class="fa-solid fa-save fa-lg"></i></button>
       </form>
 
     </div>
@@ -125,29 +142,50 @@
 
   <div id="activeModal" class="modal">
 
-    <div class="modal-content">
+    <div class="modal-content-active">
 
-      <span class="close" id="closeModal"><i class="fa-solid fa-xmark fa-xl"></i></span>
+      <span class="close" id="closeModalActive"><i class="fa-solid fa-xmark fa-xl"></i></span>
 
-      <h2>Tu Nota!</h2><br>
+      <h2>Tu Nota!<span style="color: #98e2e1;">____</span></h2><br>
 
-      <span class="icon"><i class="fa-solid fa-file-word fa-lg""></i></span>
+      <div class="date-grid">
 
-      <h3>
-        <script>document.write(date)</script>
-      </h3>
+        <h3>
+          <script>document.write(date)</script>
+        </h3>
 
-      <h3>
-        <script>document.write(titulo)</script>
-      </h3>
+      </div>
 
-      <span class=" icon"><i class="fa-regular fa-file-lines fa-lg""></i></span>
+      <div class="grid-content">
 
-      <p>
-        <script>document.write(cuerpo)</script>
-      </p>
+        <div class="content-box">
+
+          <h3>Titulo: </h3>
+
+          <h4>
+            <script>document.write(titulo)</script>
+          </h4>
+
+          <span class="icon"><i class="fa-solid fa-file-word fa-lg""></i></span>
+
+        </div>
+
+        <div class=" content-box textarea-box">
+
+          <h3>Cuerpo: </h3>
+
+          <p>
+            <script>document.write(cuerpo)</script>
+          </p>
+
+          <span class="icon"><i class="fa-regular fa-file-lines fa-lg"></i></span>
+
+        </div>
+
+      </div>
 
     </div>
+
   </div>
 
 </body>

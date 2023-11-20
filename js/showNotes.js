@@ -85,7 +85,7 @@ const renderNotes = (notes) => {
         noteItem.className = "notes-list-item";
 
         const noteIcon = document.createElement("i");
-        noteIcon.className = "notes-list-item-icon fa-regular fa-bookmark";
+        noteIcon.className = "notes-list-item-icon fa-solid fa-bookmark";
 
         const noteTitle = document.createElement("h4");
         noteTitle.textContent = note.title;
@@ -188,20 +188,43 @@ const updateNotesList = (updatedNotes) => {
 
 renderNotes(notes);
 
-// Carga de la función para desplegar el Popup
+// Refencia al boton "X"
 
-const closeModalButton = document.getElementById("closeModal");
+const closeModalUpdate = document.getElementById("closeModalUpdate");
+const closeModalActive = document.getElementById("closeModalActive");
 
-closeModalButton.addEventListener("click", () => {
+// Carga de funciónes para cerrar el Popup Update
+
+closeModalUpdate.addEventListener("click", () => {
+
     const modal = document.getElementById("updateModal");
     modal.style.display = "none";
+
 });
 
-// Carga de la función para cerrar el Popup
-
 window.addEventListener("click", (event) => {
+
     const modal = document.getElementById("updateModal");
     if (event.target === modal) {
         modal.style.display = "none";
     }
+
+});
+
+// Carga de funciónes para cerrar el Popup Active
+
+closeModalActive.addEventListener("click", () => {
+
+    const modal = document.getElementById("activeModal");
+    modal.style.display = "none";
+
+});
+
+window.addEventListener("click", (event) => {
+
+    const modal = document.getElementById("activeModal");
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+
 });

@@ -43,7 +43,7 @@ h6 {
 }
 
 .aside-grid{
-    height: 370px;
+    height: 410px;
     overflow: auto;
     padding-bottom: 5px;
     padding-left: 20px;
@@ -53,8 +53,33 @@ h6 {
 .aside-setts{
     background-color: #4B3F6B;
     box-shadow: -7px 2px 8px 4px rgba(0, 0, 0, 0.5);
-    height: 26.2%;
+    height: 14%;
     padding: 15px 15px 10px 15px;
+
+    display: flex;
+    align-items: center;
+
+}
+
+.icons-list{
+    margin: 0px auto;
+    margin-right: auto;
+    list-style: none;
+    font-size: 40px;
+
+    width: 100%;
+    
+    display: flex;
+    justify-content: space-evenly
+}
+
+.icons-list li {
+    padding: 5px;
+}
+
+.icons-list li:hover {
+    color: #2ed0d2;
+    cursor: pointer;
 }
 
 /* Scrollbar */
@@ -87,6 +112,7 @@ h6 {
 }
 
 .notes-list-item-icon{
+    color: #2ed0d2;
     margin-top: 10px;
     margin-left: 10px;
     font-size: 18px;
